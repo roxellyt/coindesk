@@ -7,6 +7,8 @@
 
 <button (click)="updateBitcoinRates()">Atualizar</button>
 
+<h2 style="text-align:center">Valores Bitcoin</h2>
+
 <table style="width:100%">
   <tr>
     <th>Data/Hora</th>
@@ -19,3 +21,14 @@
     <td>{{ rate.bpi.BRL.rate_float }}</td>
   </tr>
 </table>
+<hr />
+
+<h2 style="text-align:center">Contagem do temporizador</h2>
+<p style="text-align:center">
+  <b>
+    {{ timer.getCount() }}
+  </b>
+</p>
+
+<button (click)="timer.stop()">Parar Temporizador</button>
+<button (click)="timer.start(1000)">Continuar Temporizador</button>

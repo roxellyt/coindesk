@@ -1,5 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 import { BitcoinService } from './bitcoin.service';
+import { TimerService } from './timer.service';
 
 @Component({
   selector: 'my-app',
@@ -9,9 +10,16 @@ import { BitcoinService } from './bitcoin.service';
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
 
-  constructor(public bitcoinService: BitcoinService) {}
+  constructor(
+    public bitcoinService: BitcoinService,
+    public timer: TimerService
+  ) {
+    this.timer.start(1000);
+  }
 
   updateBitcoinRates() {
     this.bitcoinService.update();
   }
+
+  ngOnInit() {}
 }
