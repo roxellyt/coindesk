@@ -1,0 +1,34 @@
+<p style="text-align:center"><b>Nome </b></p>
+<p style="text-align:center">Roxelly Tavares Gonçalves</p>
+<p style="text-align:center"><b>RA </b></p>
+<p style="text-align:center">0050831811029</p>
+
+<hr />
+
+<button (click)="updateBitcoinRates()">Atualizar</button>
+
+<h2 style="text-align:center">Valores Bitcoin</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Data/Hora</th>
+    <th>USD</th>
+    <th>BRL</th>
+  </tr>
+  <tr *ngFor="let rate of this.bitcoinService.list">
+    <td>{{ rate.time.updated }}</td>
+    <td>{{ rate.bpi.USD.rate_float }}</td>
+    <td>{{ rate.bpi.BRL.rate_float }}</td>
+  </tr>
+</table>
+<hr />
+
+<h2 style="text-align:center">Contagem do temporizador</h2>
+<p style="text-align:center">
+  <b>
+    {{ timer.getCount() }}
+  </b>
+</p>
+
+<button (click)="timer.stop()">Parar Temporizador</button>
+<button (click)="timer.start(1000)">Continuar Temporizador</button>
